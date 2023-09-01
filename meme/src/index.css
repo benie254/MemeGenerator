@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  height: 65px;
+  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+}
+
+.brand-img {
+  width: 31px;
+  height: 26px;
+  margin-left: 15px;
+  padding-right: 5px;
+}
+
+.brand {
+  color: #FFF;
+  font-family: 'Karla', sans-serif;
+  margin-right: auto;
+}
+
+.tagline {
+  color: #FFF;
+  padding-left: 52px;
+  padding-right: 15px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+}
+
+.memeForm {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 45px;
+}
+
+.memeForm > form > input {
+  width: 230px;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid #D5D4D8;
+  padding: 15px;
+  max-width: 100%;
+}
+
+.memeForm > form > button {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 0;
+  background: linear-gradient(90deg, #711F8D 1.14%, #A818DA 100%);   
+  margin-top: 25px; 
+  color: #FFF;
+  text-align: center;
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.meme-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.meme-card {
+  margin-top: 45px;
+  text-align: center;
+  background-size:cover;
+  background-repeat: no-repeat;
+  width: 477px;
+  height: 268px;
+  border-radius: 2px;
+}
+
+.meme-card:hover {
+  opacity: 0.75;
+}
+
+.text-top, .text-bottom {
+  color: orangered;
+  font-family: Impact;
+  font-size: 32px;
+  font-weight: 900;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.text-top {
+  padding-bottom: 65px;
+}
+
+.text-bottom {
+  padding-top: 65px;
+}
