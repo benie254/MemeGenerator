@@ -1,5 +1,7 @@
+import Contact from '../data/Contact';
 import MemeData from '../data/MemeData';
 import {useState} from "react";
+import Star from './Star';
 
 interface MemeInterface {
     id: string;
@@ -10,6 +12,15 @@ interface MemeInterface {
     box_count: number;
 }
 
+interface ContactInterface {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    isFav: boolean;
+    tester: string;
+}
+
 export default function Meme() { 
     const memeData = MemeData.data.memes;
     let randomNum = Math.floor(Math.random() * memeData.length);
@@ -17,6 +28,19 @@ export default function Meme() {
     const [memeGen, setMemeGen] = useState<MemeInterface>({id:'',name: '',url:'',width:0,height:0,box_count:0});
     const [topText, setTopText] = useState<string>("TOP TEXT");
     const [bottomText, setBottomText] = useState<string>("BOTTOM TEXT");
+
+    let contact = Contact.data.contacts[0];
+    const [contacts, setContacts] = useState<ContactInterface>(contact);
+
+    
+
+    function toggleFav() {
+        setContacts(prevContacts => {
+            return {
+                ...prevContacts, isFav: !prevContacts.isFav
+            };
+        });
+    }
 
     function handleMeme() {
         let randomMeme = memeData[randomNum];
@@ -51,6 +75,18 @@ export default function Meme() {
                     }
                 </form>
             </div>
+
+            
+            {
+                contacts &&
+                <div>
+                    <p>{contacts.firstName}</p>
+                    <p>{contacts.lastName}</p>
+                    <p>{contacts.email}</p>
+                    <p>{contacts.phone}</p>
+                    <Star tested={contacts.isFav} toggleFav={toggleFav} />
+                </div>
+            }
         </>
     )
 }
