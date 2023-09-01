@@ -1,5 +1,4 @@
 import MemeData from '../data/MemeData';
-import MemeText from '../data/MemeText';
 import {useState} from "react";
 
 interface MemeInterface {
@@ -11,11 +10,6 @@ interface MemeInterface {
     box_count: number;
 }
 
-interface MemeTextInterface {
-    textOne: string;
-    textTwo: string;
-}
-
 export default function Meme() { 
     const memeData = MemeData.data.memes;
     let randomNum = Math.floor(Math.random() * memeData.length);
@@ -23,6 +17,8 @@ export default function Meme() {
     const [memeGen, setMemeGen] = useState<MemeInterface>({id:'',name: '',url:'',width:0,height:0,box_count:0});
     const [topText, setTopText] = useState<string>("TOP TEXT");
     const [bottomText, setBottomText] = useState<string>("BOTTOM TEXT");
+
+    const [count, setCount] = useState<number>(0);
 
     function handleMeme() {
         let randomMeme = memeData[randomNum];
@@ -37,6 +33,13 @@ export default function Meme() {
         setBottomText(event.currentTarget.value);
     }
 
+    function handleAddCount() {
+        setCount(count +1);
+    }
+    function handleMinusCount() {
+        setCount(count -1);
+    }
+
     return (
         <>
             <div className="memeForm">
@@ -46,20 +49,24 @@ export default function Meme() {
                     <input type="text" onChange={handleBottomText} placeholder="Bottom text" />
                     <br />
                     <button type="button" onClick={handleMeme}>Get a new meme image 🖼</button>
-                    <div className="meme-wrapper">
-                        <div className="meme-card" style={{backgroundImage:`url(${memeGen.url})`}}>
-                            <h1 className="text-top">{topText}</h1>
-                            <h1 className="text-bottom">{bottomText}</h1>
+                    {
+                        memeGen.url &&
+                        <div className="meme-wrapper">
+                            <div className="meme-card" style={{backgroundImage:`url(${memeGen.url})`}}>
+                                <h1 className="text-top">{topText}</h1>
+                                <h1 className="text-bottom">{bottomText}</h1>
+                            </div>
                         </div>
-                    </div>
+                    }
                 </form>
             </div>
-            
-            
 
-
-            <br /><br />
-            
+            <div>
+                <h1>{count}</h1>
+                <button onClick={handleAddCount}>+</button>
+                <br /><br />
+                <button onClick={handleMinusCount}>-</button>
+            </div>
         </>
     )
 }
