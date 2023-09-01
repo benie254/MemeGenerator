@@ -33,13 +33,6 @@ export default function Meme() {
         setBottomText(event.currentTarget.value);
     }
 
-    function handleAddCount() {
-        setCount(prevCount => prevCount +1);
-    }
-    function handleMinusCount() {
-        setCount(prevCount => prevCount -1);
-    }
-
     return (
         <>
             <div className="memeForm">
@@ -59,13 +52,6 @@ export default function Meme() {
                         </div>
                     }
                 </form>
-            </div>
-
-            <div>
-                <h1>{count}</h1>
-                <button onClick={handleAddCount}>+</button>
-                <br /><br />
-                <button onClick={handleMinusCount}>-</button>
             </div>
         </>
     )
