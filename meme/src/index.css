@@ -104,3 +104,12 @@ nav {
 .text-bottom {
   padding-top: 65px;
 }
+
+.boxes {
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  margin-right: 2px;
+  border-radius: 6px;
+}
