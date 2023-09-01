@@ -18,8 +18,6 @@ export default function Meme() {
     const [topText, setTopText] = useState<string>("TOP TEXT");
     const [bottomText, setBottomText] = useState<string>("BOTTOM TEXT");
 
-    const [go, setGo] = useState<boolean>(true);
-
     function handleMeme() {
         let randomMeme = memeData[randomNum];
         setMemeGen(randomMeme);
@@ -31,9 +29,6 @@ export default function Meme() {
     }
     function handleBottomText(event: React.ChangeEvent<HTMLInputElement>) {
         setBottomText(event.currentTarget.value);
-    }
-    function handleGo() {
-        setGo(prevGo => !prevGo);
     }
 
     return (
@@ -55,13 +50,6 @@ export default function Meme() {
                         </div>
                     }
                 </form>
-            </div>
-            <div>
-                    <button onClick={handleGo}>
-                        change
-                    </button>
-                    <h1>Do I feel like going out?</h1>
-                    <h1>{go ? 'Yes' : 'No'}</h1>
             </div>
         </>
     )
