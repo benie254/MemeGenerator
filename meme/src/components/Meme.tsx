@@ -1,6 +1,5 @@
 import MemeData from '../data/MemeData';
 import {useState} from "react";
-import Count from './Count';
 
 interface MemeInterface {
     id: string;
@@ -19,13 +18,6 @@ export default function Meme() {
     const [topText, setTopText] = useState<string>("TOP TEXT");
     const [bottomText, setBottomText] = useState<string>("BOTTOM TEXT");
 
-    const [count, setCount] = useState<number>(0);
-    function add(){
-        setCount(prevCount => prevCount +1);
-    }
-    function minus(){
-        setCount(prevCount => prevCount -1);
-    }
     function handleMeme() {
         let randomMeme = memeData[randomNum];
         setMemeGen(randomMeme);
@@ -58,15 +50,6 @@ export default function Meme() {
                         </div>
                     }
                 </form>
-            </div>
-
-            <div><br /><br />
-                <button onClick={add}>+</button>
-                <h1>{count}</h1>
-                <button onClick={minus}>-</button>
-            </div>
-            <div>
-                <Count count={count} />
             </div>
         </>
     )
