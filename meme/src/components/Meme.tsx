@@ -18,8 +18,6 @@ export default function Meme() {
     const [topText, setTopText] = useState<string>("TOP TEXT");
     const [bottomText, setBottomText] = useState<string>("BOTTOM TEXT");
 
-    const [count, setCount] = useState<number>(0);
-
     function handleMeme() {
         let randomMeme = memeData[randomNum];
         setMemeGen(randomMeme);
