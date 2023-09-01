@@ -18,13 +18,6 @@ export default function Meme() {
     const [topText, setTopText] = useState<string>("TOP TEXT");
     const [bottomText, setBottomText] = useState<string>("BOTTOM TEXT");
 
-    const thingsArray = ["Thing 1", "Thing 2"];
-    const [things, setThings] = useState<string[]>(thingsArray);
-
-    function addItem() {
-        setThings(prevThings => [...prevThings, `Thing ${things.length + 1}`]);
-    }
-
     function handleMeme() {
         let randomMeme = memeData[randomNum];
         setMemeGen(randomMeme);
@@ -40,8 +33,6 @@ export default function Meme() {
 
     return (
         <>
-        <button onClick={addItem}>Add</button>
-        <p>{things}</p>
             <div className="memeForm">
                 <form action="">
                     <input type="text" onChange={handleTopText} placeholder="Top text" />
