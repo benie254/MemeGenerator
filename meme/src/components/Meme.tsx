@@ -34,10 +34,10 @@ export default function Meme() {
     }
 
     function handleAddCount() {
-        setCount(count +1);
+        setCount(prevCount => prevCount +1);
     }
     function handleMinusCount() {
-        setCount(count -1);
+        setCount(prevCount => prevCount -1);
     }
 
     return (
