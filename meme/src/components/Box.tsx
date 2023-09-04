@@ -4,25 +4,23 @@ import Boxes from "../data/Boxes";
 interface BoxProps {
     boxId: number;
     boxOn: boolean;
+    handleClick: (id: number) => void;
 }
 
-export default function Box({boxId, boxOn}: BoxProps) {
-    const [on, setOn] = useState<boolean>(boxOn);
-
-    function boxClicked() {
-        setOn(prevOn => !prevOn);
-      }
+export default function Box({boxId, boxOn, handleClick}: BoxProps) {
     return (
         <>
             <div>
                 <div 
                     style={{
-                        backgroundColor: on ? '#222222' : 'transparent'
+                        backgroundColor: boxOn ? '#222222' : 'transparent'
                     }} 
-                    className="boxes" key={boxId}
-                    onClick={boxClicked}
+                    className="boxes" 
+                    key={boxId}
+                    onClick={() => handleClick(boxId)}
                 >
                 </div> 
+                <button>Click</button>
                 <br />
             </div>
         </>

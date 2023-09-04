@@ -14,9 +14,17 @@ function App() {
   let boxArray = Boxes;
   const [boxes, setBoxes] = useState<BoxesInter[]>(boxArray);
 
+  function boxClicked(id: number) {
+    setBoxes(prevBoxes => {
+      return prevBoxes.map(
+        (box) => box.id === id ? {...box, on: !box.on} : box
+      )
+    })
+}
+
   const allBoxes = boxes.map(
     (box) => (
-      <Box boxId={box.id} boxOn={box.on} />
+      <Box key={box.id} boxId={box.id} boxOn={box.on} handleClick={boxClicked} />
     )
   )
 
