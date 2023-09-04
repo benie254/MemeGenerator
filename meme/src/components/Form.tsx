@@ -30,9 +30,14 @@ export default function Form() {
         })
     }
 
+    function handleSubmit(event: any){
+        event.preventDefault();
+        console.log(formData);
+    }
+
     return (
         <>
-        <form action="">
+        <form onSubmit={handleSubmit}>
             <h4>first Name: {formData.firstName}</h4>
             <input 
                 type="text" 
@@ -117,6 +122,8 @@ export default function Form() {
                 <option value="green">Green</option>
                 <option value="yellow">Yellow</option>
             </select>
+            <br /><br />
+            <button>Submit</button>
         </form>
         </>
     )
