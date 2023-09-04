@@ -6,6 +6,7 @@ import Box from "./components/Box";
 import JokesData from "./data/JokesData";
 import Jokes from "./components/Jokes";
 import Form from "./components/Form";
+import UserForm from "./components/UserForm";
 
 interface BoxesInter {
   id: number;
@@ -48,9 +49,10 @@ function App() {
       {/* <Navbar />
       <Meme /> */}
       <div>
-        <Form />
+        {/* <Form /> */}
+        <UserForm />
       </div>
-      <main>
+      {/* <main>
         {
           msg.length ?
           <h1>You have {msg.length} unread { msg.length > 1 ? 'message(s)' : 'message' }</h1>
@@ -59,7 +61,7 @@ function App() {
         }
         <button onClick={clear}>Clear messages</button>
       {allJokes}
-      </main>
+      </main> */}
     </>
   )
 }
