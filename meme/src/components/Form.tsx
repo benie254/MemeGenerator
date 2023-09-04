@@ -4,10 +4,11 @@ interface FormInput {
     firstName: string;
     lastName: string;
     email: string;
+    comments: string;
 }
 
 export default function Form() {
-    const [formData, setFormData] = useState<FormInput>({firstName: "", lastName: "", email: ""});
+    const [formData, setFormData] = useState<FormInput>({firstName: "", lastName: "", email: "", comments: ""});
     
     function handleChange(event: any){
         setFormData(prevFormData => {
@@ -43,6 +44,13 @@ export default function Form() {
                 name="email" 
                 onChange={handleChange} 
                 value={formData.email}
+            />
+            <h4>comment: {formData.comments}</h4>
+            <textarea 
+                placeholder="Comments..."
+                name="comments"
+                onChange={handleChange} 
+                value={formData.comments}
             />
         </form>
         </>
