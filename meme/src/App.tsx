@@ -7,6 +7,7 @@ import JokesData from "./data/JokesData";
 import Jokes from "./components/Jokes";
 import Form from "./components/Form";
 import UserForm from "./components/UserForm";
+import Effects from "./components/Effects";
 
 interface BoxesInter {
   id: number;
@@ -50,7 +51,8 @@ function App() {
       <Meme /> */}
       <div>
         {/* <Form /> */}
-        <UserForm />
+        {/* <UserForm /> */}
+        <Effects />
       </div>
       {/* <main>
         {

@@ -25,7 +25,7 @@ export default function UserForm() {
             return {
                 ...prevFormData, [name]: type === 'checkbox' ? checked : value
             }
-        })
+        });
     }
 
     function handleSubmit(event: any){
