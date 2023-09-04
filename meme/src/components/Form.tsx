@@ -3,10 +3,11 @@ import { useState } from "react"
 interface FormInput {
     firstName: string;
     lastName: string;
+    email: string;
 }
 
 export default function Form() {
-    const [formData, setFormData] = useState<FormInput>({firstName: "", lastName: ""});
+    const [formData, setFormData] = useState<FormInput>({firstName: "", lastName: "", email: ""});
     
     function handleChange(event: any){
         setFormData(prevFormData => {
@@ -16,16 +17,15 @@ export default function Form() {
         })
     }
 
-    console.log(formData)
     return (
         <>
         <form action="">
-            first Name: {formData.firstName}
-            <br />
+            <h4>first Name: {formData.firstName}</h4>
             <input type="text" placeholder="First name..." name="firstName" onChange={handleChange} />
-            last Name: {formData.lastName}
-            <br />
-            <input type="text" placeholder="Last name" name="lastName" onChange={handleChange} />
+            <h4>last Name: {formData.lastName}</h4>
+            <input type="text" placeholder="Last name..." name="lastName" onChange={handleChange} />
+            <h4>email: {formData.email}</h4>
+            <input type="email" placeholder="Email address..." name="email" onChange={handleChange} />
         </form>
         </>
     )
