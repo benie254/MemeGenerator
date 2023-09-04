@@ -1,16 +1,31 @@
 import { useState } from "react"
 
+interface FormInput {
+    firstName: string;
+    lastName: string;
+}
+
 export default function Form() {
-    const [name, setName] = useState<String>("");
+    const [formData, setFormData] = useState<FormInput>({firstName: "", lastName: ""});
+    
     function handleChange(event: any){
-        setName(event.target.value);
-        console.log(name);
+        setFormData(prevFormData => {
+            return {
+                ...prevFormData, [event.target.name]: event.target.value
+            }
+        })
     }
+
+    console.log(formData)
     return (
         <>
         <form action="">
-            <input type="text" placeholder="First name..." onChange={handleChange} />
-            value = {name}
+            first Name: {formData.firstName}
+            <br />
+            <input type="text" placeholder="First name..." name="firstName" onChange={handleChange} />
+            last Name: {formData.lastName}
+            <br />
+            <input type="text" placeholder="Last name" name="lastName" onChange={handleChange} />
         </form>
         </>
     )
