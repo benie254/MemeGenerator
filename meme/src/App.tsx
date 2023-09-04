@@ -5,6 +5,7 @@ import Boxes from "./data/Boxes";
 import Box from "./components/Box";
 import JokesData from "./data/JokesData";
 import Jokes from "./components/Jokes";
+import Form from "./components/Form";
 
 interface BoxesInter {
   id: number;
@@ -46,6 +47,9 @@ function App() {
     <>
       {/* <Navbar />
       <Meme /> */}
+      <div>
+        <Form />
+      </div>
       <main>
         {
           msg.length ?
