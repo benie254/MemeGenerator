@@ -2,6 +2,7 @@ import { useState } from "react";
 import Meme from "./components/Meme";
 import Navbar from "./components/Navbar";
 import Boxes from "./data/Boxes";
+import Box from "./components/Box";
 
 interface BoxesInter {
   id: number;
@@ -15,9 +16,7 @@ function App() {
 
   const allBoxes = boxes.map(
     (box) => (
-        <div>
-          <div className="boxes" key={box.id}></div> <br />
-        </div>
+      <Box boxId={box.id} boxOn={box.on} />
     )
   )
 
