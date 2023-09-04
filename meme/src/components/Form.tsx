@@ -5,15 +5,23 @@ interface FormInput {
     lastName: string;
     email: string;
     comments: string;
+    isFriendly: boolean;
 }
 
 export default function Form() {
-    const [formData, setFormData] = useState<FormInput>({firstName: "", lastName: "", email: "", comments: ""});
+    const [formData, setFormData] = useState<FormInput>({
+        firstName: "", 
+        lastName: "", 
+        email: "", 
+        comments: "",
+        isFriendly: true
+    });
     
     function handleChange(event: any){
+        const {name, value, type, checked} = event.target
         setFormData(prevFormData => {
             return {
-                ...prevFormData, [event.target.name]: event.target.value
+                ...prevFormData, [name]: type === "checkbox" ? checked : value
             }
         })
     }
@@ -52,6 +60,14 @@ export default function Form() {
                 onChange={handleChange} 
                 value={formData.comments}
             />
+            <h4>{formData.isFriendly ? "Is Friendly" : "NOT friendly"}</h4>
+            <input 
+                type="checkbox"
+                name="isFriendly"
+                onChange={handleChange} 
+                checked={formData.isFriendly}
+            />
+            <label htmlFor="friendly">Are you friendly?</label>
         </form>
         </>
     )
