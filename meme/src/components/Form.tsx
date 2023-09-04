@@ -7,6 +7,7 @@ interface FormInput {
     comments: string;
     isFriendly: boolean;
     employment: string;
+    favColor: string;
 }
 
 export default function Form() {
@@ -16,7 +17,8 @@ export default function Form() {
         email: "", 
         comments: "",
         isFriendly: true,
-        employment: ""
+        employment: "",
+        favColor: "",
     });
     
     function handleChange(event: any){
@@ -106,6 +108,15 @@ export default function Form() {
                 />
                 <label htmlFor="full-time">Full-time</label>
             </fieldset>
+            <h4>Fav color: {formData.favColor}</h4>
+            <label htmlFor="favColor">Favorite Color</label>
+            <select id="favColor" name="favColor" value={formData.favColor} onChange={handleChange}>
+                <option value="">--choose one---</option>
+                <option value="red">Red</option>
+                <option value="orange">Orange</option>
+                <option value="green">Green</option>
+                <option value="yellow">Yellow</option>
+            </select>
         </form>
         </>
     )
