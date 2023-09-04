@@ -3,6 +3,8 @@ import Meme from "./components/Meme";
 import Navbar from "./components/Navbar";
 import Boxes from "./data/Boxes";
 import Box from "./components/Box";
+import JokesData from "./data/JokesData";
+import Jokes from "./components/Jokes";
 
 interface BoxesInter {
   id: number;
@@ -13,6 +15,12 @@ function App() {
 
   let boxArray = Boxes;
   const [boxes, setBoxes] = useState<BoxesInter[]>(boxArray);
+
+  const [msg, setMsg] = useState<String[]>(["a","b"]);
+  
+  function clear() {
+    setMsg(prevMsg => prevMsg = []);
+  }
 
   function boxClicked(id: number) {
     setBoxes(prevBoxes => {
@@ -28,13 +36,25 @@ function App() {
     )
   )
 
+  const allJokes = JokesData.map(
+    (joke) => (
+      <Jokes key={joke.id} setup={joke.setup} punchline={joke.punchline} />
+    )
+  )
+
   return (
     <>
       {/* <Navbar />
       <Meme /> */}
       <main>
-        <h1>Boxes</h1>
-        {allBoxes}
+        {
+          msg.length ?
+          <h1>You have {msg.length} unread { msg.length > 1 ? 'message(s)' : 'message' }</h1>
+          :
+          <h1>You're all caught up</h1>
+        }
+        <button onClick={clear}>Clear messages</button>
+      {allJokes}
       </main>
     </>
   )
